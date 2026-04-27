@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Capybara Math Battle</string>
+    <string name="title_activity_main">Capybara Math Battle</string>
+    <string name="package_name">capybara.math.battle</string>
+    <string name="custom_url_scheme">capybara.math.battle</string>
+</resources>

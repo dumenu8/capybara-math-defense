@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html, body {
+  @apply bg-black text-slate-100 selection:bg-rose-500 selection:text-white m-0;
+  height: 100%;
+  min-height: 100dvh;
+}
+
+/* Animations */
+@keyframes animate-white {
+  0%, 100% { transform: translateX(0) scale(1); filter: brightness(1); }
+  20%, 60% { transform: translateX(-55px) scale(1.1); filter: brightness(2); }
+  40%, 80% { transform: translateX(55px) scale(1.1); filter: brightness(2); }
+}
+@keyframes animate-red {
+  0%, 100% { transform: translateY(0) scaleX(1); filter: brightness(1) sepia(0); }
+  20%, 60% { transform: translateY(-55px) scale(1.1); filter: brightness(1.2) sepia(1) saturate(10) hue-rotate(-50deg); }
+  40%, 80% { transform: translateY(55px) scale(1.1); filter: brightness(1.2) sepia(1) saturate(10) hue-rotate(-50deg); }
+}
+/* --- Background Flash Animation --- */
+@keyframes flash-overlay {
+  0% { opacity: 0; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
+.animate-result-win {
+  animation: animate-white 0.5s ease-in-out;
+}
+.animate-result-lose {
+  animation: animate-red 0.5s ease-in-out;
+}
+

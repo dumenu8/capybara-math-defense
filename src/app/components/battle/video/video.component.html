@@ -1,0 +1,28 @@
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden flex justify-center items-center">
+  <div class="relative w-full h-full">
+    <video #videoIdle muted loop playsinline poster="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      preload="auto"
+      class="h-full w-full object-cover transition-opacity duration-200"
+    [style.object-position]="hero() ? 'calc(50% - 100px) 50%' : enemy() ? 'calc(50% + 50px) 50%' : '50% 50%'"
+    >
+    </video>
+
+    <video #videoStrike playsinline poster="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      preload="auto"
+      class="h-full w-full object-cover transition-opacity duration-200 absolute top-0 left-0 z-10"
+    [style.object-position]="hero() ? 'calc(50% - 100px) 50%' : enemy() ? 'calc(50% + 50px) 50%' : '50% 50%'"
+    [class.opacity-0]="!showStrike()"
+    [class.opacity-100]="showStrike()"
+    >
+    </video>
+
+    <video #videoMiss playsinline poster="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      preload="auto"
+      class="h-full w-full object-cover transition-opacity duration-200  absolute top-0 left-0  z-10"
+    [style.object-position]="hero() ? 'calc(50% - 100px) 50%' : enemy() ? 'calc(50% + 50px) 50%' : '50% 50%'"
+    [class.opacity-0]="!showMiss()"
+    [class.opacity-100]="showMiss()"
+    >
+    </video>
+  </div>
+</div>

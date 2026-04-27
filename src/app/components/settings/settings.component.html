@@ -1,0 +1,64 @@
+<div class="flex-1 flex flex-col p-6 bg-slate-950 text-white relative h-full overflow-hidden">
+  <div class="flex items-center mb-8 pt-4 shrink-0">
+    <button (click)="goBack()" class="p-2 mr-4 bg-slate-800 rounded-xl hover:bg-slate-700 active:scale-95 transition-all text-slate-300">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1 class="text-2xl font-bold tracking-tight">Game Settings</h1>
+  </div>
+
+  @if( showForm() ) {
+  <form [formGroup]="form" class="space-y-8 flex-1 overflow-y-auto pb-24">
+    
+    <!-- Max Answer Limit -->
+    <div class="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-sm">
+      <label class="block text-sm font-bold text-slate-300 mb-4 uppercase tracking-wider">Max Answer Limit</label>
+      <div class="flex items-center justify-between space-x-4">
+        <input type="range" min="50" max="1000" step="10" formControlName="maxAnswer" class="w-full accent-rose-500 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+        <span class="text-2xl font-mono font-bold text-rose-400 min-w-[3ch] text-right">{{ form.value.maxAnswer }}</span>
+      </div>
+    </div>
+
+    <!-- Questions Per Battle -->
+    <div class="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-sm">
+      <label class="block text-sm font-bold text-slate-300 mb-4 uppercase tracking-wider">Questions Per Battle</label>
+      <div class="flex items-center justify-between space-x-4">
+        <input type="range" min="5" max="500" step="5" formControlName="questionsPerBattle" class="w-full accent-emerald-500 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+        <span class="text-2xl font-mono font-bold text-emerald-400 min-w-[3ch] text-right">{{ form.value.questionsPerBattle }}</span>
+      </div>
+    </div>
+
+    <!-- Operators -->
+    <div class="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-sm">
+        <label class="block text-sm font-bold text-slate-300 mb-4 uppercase tracking-wider">Operators (Select ≥ 2)</label>
+        
+        @if (operatorError) {
+          <div class="text-rose-500 text-sm font-bold mb-4 bg-rose-500/10 p-3 rounded-xl">⚠️ Please select at least 2 operators.</div>
+        }
+
+        <div class="grid grid-cols-2 gap-4">
+          @for (op of availableOperators; track op.symbol) {
+            <label class="flex items-center justify-center p-4 rounded-2xl border-2 transition-all cursor-pointer relative overflow-hidden" 
+                    [class.border-emerald-500]="isOperatorSelected(op.symbol)"
+                    [class.bg-emerald-500]="isOperatorSelected(op.symbol)"
+                    [class.bg-opacity-20]="isOperatorSelected(op.symbol)"
+                    [class.border-slate-700]="!isOperatorSelected(op.symbol)"
+                    [class.bg-slate-800]="!isOperatorSelected(op.symbol)">
+                <input type="checkbox" class="sr-only" [checked]="isOperatorSelected(op.symbol)" (change)="toggleOperator(op.symbol)">
+                <span class="text-3xl font-mono font-bold font-black" [class.text-slate-100]="isOperatorSelected(op.symbol)" [class.text-slate-500]="!isOperatorSelected(op.symbol)">{{ op.symbol }}</span>
+            </label>
+          }
+        </div>
+    </div>
+
+  </form>
+  }
+
+  <!-- Save Button fixed at bottom -->
+  <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent pt-12 z-10">
+    <button (click)="saveAndReturn()" 
+            class="w-full bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 active:translate-y-1 transition-all text-white font-bold text-lg py-5 px-6 rounded-3xl shadow-xl border-b-4 border-black/30">
+      Save & Return
+    </button>
+  </div>
+
+</div>
