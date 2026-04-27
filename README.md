@@ -1,4 +1,4 @@
-# 🧮 Capybara Math Guard
+# 🧮 Capybara Math Defense
 
 ![Angular](https://img.shields.io/badge/Angular-21-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
