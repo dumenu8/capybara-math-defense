@@ -70,7 +70,7 @@ Parents or kids can easily tailor the difficulty of the game via the Settings ge
 ### Run Locally in Browser
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/dumenu8/capybara-math-defense.git](https://github.com/dumenu8/capybara-math-defense.git)
+   git clone https://github.com/dumenu8/capybara-math-defense.git
    cd capybara-math-defense
 2. Install dependencies:
 	```bash
